@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  
+  /* RGB значения для tailwind */
+  --color-primary: 30, 64, 175;  /* темно-синий */
+  --color-secondary: 16, 185, 129;  /* зеленый */
+  --color-accent: 245, 158, 11;  /* оранжевый */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+@layer base {
+  html, body {
+    height: 100%;
+  }
+
+  body {
+    @apply text-gray-800;
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center px-4 py-2 rounded-md font-medium transition-colors;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-blue-700;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-white hover:bg-green-600;
+  }
+
+  .btn-accent {
+    @apply bg-accent text-white hover:bg-amber-600;
+  }
+
+  .container {
+    @apply mx-auto px-4 max-w-7xl;
+  }
+
+  .section {
+    @apply py-12 md:py-16;
+  }
+
+  .section-title {
+    @apply text-2xl md:text-3xl font-bold mb-8 text-center;
+  }
+}
