@@ -2,23 +2,22 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Menu } from './Menu';
-import { Language } from './language';
+import { Language } from './Language';
 import { useRouter } from 'next/navigation';
 
 type MobileNavigationProps = {
   isOpen: boolean;
   toggleMenu: () => void;
-  menuItems: { key: string; path: string }[];
-  t: (key: string) => string;
+  menuItems: { key: string; path: string, title: string }[];
 };
 
-export const MobileNavigation: React.FC<MobileNavigationProps> = ({ isOpen, toggleMenu, menuItems, t }) => {
+export const MobileNavigation: React.FC<MobileNavigationProps> = ({ isOpen, toggleMenu, menuItems }) => {
   const router = useRouter();
 
-  const changeLanguage = (locale: string) => {
-    router.push(`/${locale}`);
-    toggleMenu();
-  };
+  // const changeLanguage = (locale: string) => {
+  //   router.push(`/${locale}`);
+  //   toggleMenu();
+  // };
 
   return (
     <>
@@ -30,7 +29,7 @@ export const MobileNavigation: React.FC<MobileNavigationProps> = ({ isOpen, togg
           className="md:hidden bg-white"
         >
           <div className="container mx-auto px-4 py-3">
-            <Menu menuItems={menuItems} t={t} onItemClick={toggleMenu} isMobile />
+            <Menu menuItems={menuItems} onItemClick={toggleMenu} isMobile />
             <Language isMobile toggleMenu={toggleMenu} />
           </div>
         </motion.div>

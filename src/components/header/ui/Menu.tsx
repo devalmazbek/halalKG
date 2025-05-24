@@ -6,14 +6,11 @@ import { useTransform } from 'framer-motion';
 
 type MenuProps = {
   menuItems: { key: string; path: string, title: string }[];
-  t: (key: string) => string;
   onItemClick?: () => void;
   isMobile?: boolean;
 };
 
-export const Menu: React.FC<MenuProps> = ({ menuItems, onItemClick, isMobile = false }) => {
-  const { t } = useTranslation("nav");
-
+export const Menu: React.FC<MenuProps> = ({ menuItems, onItemClick, isMobile }) => {
   if (isMobile) {
     // Мобильное меню
     return (

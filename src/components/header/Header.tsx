@@ -7,8 +7,10 @@ import { useTranslation } from 'react-i18next';
 import { FiMenu, FiX } from 'react-icons/fi';
 
 import { Menu, Language } from './ui';
+import { MobileNavigation } from './ui/MobileMenu';
 
 import { menuItems } from './data';
+import { MenuItem } from './model';
 
 const Header: React.FC = () => {
   const router = useRouter();
@@ -20,7 +22,7 @@ const Header: React.FC = () => {
     setIsOpen(!isOpen);
   };
 
-  const menuItems = [
+  const menuItems: MenuItem[] = [
     { key: 'home', path: '/',  title: t('nav.home')},
     { key: 'about', path: '/about', title: t('nav.about') },
     { key: 'companies', path: '/companies', title: t('nav.companies') },
@@ -41,10 +43,12 @@ const Header: React.FC = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <Menu menuItems={menuItems} t={t} />
+          <Menu menuItems={menuItems}  />
+         
           <Language />
 
           {/* Mobile Menu Button */}
+          <MobileNavigation menuItems={menuItems} toggleMenu={toggleMenu} isOpen={isOpen}/>
           <button 
             className="md:hidden text-gray-700 focus:outline-none"
             onClick={toggleMenu}

@@ -15,8 +15,8 @@ export const Language: React.FC<LanguageProps> = ({ isMobile = false, toggleMenu
 
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng);
-    const pathWithoutLocale = pathname.replace(/^\/(ru|en|kg)/, '');
-    router.push(`/${lng}${pathWithoutLocale || '/'}`);
+    // const pathWithoutLocale = pathname.replace(/^\/(ru|en|kg)/, '');
+    // router.push(`/${lng}${pathWithoutLocale || '/'}`);
 
     if (toggleMenu) toggleMenu();
   };
