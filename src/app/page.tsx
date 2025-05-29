@@ -1,4 +1,5 @@
 "use client";
+import dynamic from "next/dynamic";
 import { useTranslation } from 'react-i18next';
 import Hero from '../components/Hero';
 import Advantages from '../components/Advantages';
@@ -10,7 +11,6 @@ import AppPromo from '../components/AppPromo';
 import { Slider } from '@/components/slider';
 import Statistic from '@/components/statistic';
 import LastNewsSlider from '@/components/last-news-slider';
-
 
 export default function Home() {
   const { t } = useTranslation();
@@ -26,21 +26,20 @@ export default function Home() {
       
        <section className='mt-8'>
         <div className='container mx-auto '>
-          <h2 className='text-4xl font-semibold mb-5'>{t('title.last-news')}</h2>
           <LastNewsSlider />
         </div>
       </section>
       <Advantages />
       
-      <NewsSection />
+      {/* <NewsSection /> */}
       
       <CompaniesSection />
       
       <CertificationSteps />
       
-      <ApplicationForm />
+      {/* <ApplicationForm /> */}
       
-      <AppPromo />
+      {/* <AppPromo /> */}
     </>
   );
 }

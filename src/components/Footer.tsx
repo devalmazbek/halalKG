@@ -36,21 +36,21 @@ const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="bg-primary text-white">
+    <footer className="bg-gray-50 text-gray-600">
       <div className="container mx-auto px-4 py-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
             <h3 className="text-xl font-bold mb-4">Халал Даму</h3>
-            <p className="text-gray-300 mb-4">
+            <p className="text-gray-600 mb-4">
               {t('about.description')}
             </p>
             <div className="flex items-center space-x-2 mb-2">
               <FiMapPin className="text-accent" />
-              <span className="text-sm text-gray-300">{t('footer.address')}</span>
+              <span className="text-sm text-gray-600">{t('footer.address')}</span>
             </div>
             <div className="flex items-center space-x-2">
               <FiMail className="text-accent" />
-              <a href="mailto:kmdbhalal@mail.ru" className="text-sm text-gray-300 hover:text-white">
+              <a href="mailto:kmdbhalal@mail.ru" className="text-sm text-gray-600 hover:text-gray-900">
                 {t('footer.email')}
               </a>
             </div>
@@ -63,7 +63,7 @@ const Footer: React.FC = () => {
                 <Link 
                   key={item.key}
                   href={item.path}
-                  className="text-gray-300 hover:text-white transition-colors"
+                  className="text-gray-600 hover:text-gray-900 transition-colors"
                 >
                   {t(`nav.${item.key}`)}
                 </Link>
@@ -73,7 +73,7 @@ const Footer: React.FC = () => {
 
           <div>
             <h3 className="text-xl font-bold mb-4">{t('footer.partners')}</h3>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-4 text-white">
               {/* Заглушки для логотипов партнеров */}
               <div className="bg-gray-800 p-4 rounded flex items-center justify-center">
                 <span className="text-xs text-center">Партнер 1</span>
@@ -90,13 +90,13 @@ const Footer: React.FC = () => {
             </div>
 
             <h3 className="text-xl font-bold mb-4 mt-6">{t('footer.map')}</h3>
-            <div className="bg-gray-800 p-4 rounded h-32 flex items-center justify-center">
+            <div className="bg-gray-800 p-4 rounded h-32 flex items-center justify-center text-white">
               <span className="text-sm text-center">{t('footer.map')}</span>
             </div>
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-10 pt-6 text-center text-sm text-gray-400">
+        <div className="border-t border-gray-800 mt-10 pt-6 text-center text-sm text-gray-600">
           &copy; {new Date().getFullYear()} Халал Даму. Все права защищены.
         </div>
       </div>
