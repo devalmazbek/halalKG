@@ -3,6 +3,7 @@ import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 
 type ButtonSize = "small" | "medium" | "large";
 type ButtonVariant = "primary" | "secondary" | "danger";
+type TextAlign = "left" | "center" | "right";
 
 interface ButtonProps {
   text: string; 
@@ -12,10 +13,11 @@ interface ButtonProps {
   className?: string;
   iconClassName?: string;
   hover?: boolean;
+  align?: TextAlign;
   onClick?: () => void;
 }
 
-export default function Button({ text, icon, size = "medium", variant = "primary", className, iconClassName, hover = true, onClick 
+export default function Button({ text, icon, size = "medium", variant = "primary", className, iconClassName, align="left", hover = true, onClick 
 }: ButtonProps) {
   
   const sizeClasses = {
@@ -30,9 +32,15 @@ export default function Button({ text, icon, size = "medium", variant = "primary
     danger: "bg-red-600 hover:bg-transparent text-white",
   };
 
+  const alignClasses = {
+  left: "justify-start text-left",
+  center: "justify-center text-center",
+  right: "justify-end text-right",
+};
+
   return (
     <button
-      className={`flex items-center gap-2 rounded-3xl transition ${sizeClasses[size]} ${variantClasses[variant]} ${className}`}
+      className={`flex items-center gap-2 rounded-3xl transition ${sizeClasses[size]} ${variantClasses[variant]} ${className} ${alignClasses[align]}`}
       onClick={onClick}
     >
       {icon && <Icon icon={icon} className={iconClassName} />}

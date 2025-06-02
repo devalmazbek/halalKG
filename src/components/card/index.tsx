@@ -2,7 +2,7 @@
 import React from 'react';
 
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import Icon from '../icon';
+import Icon from '../ui/icon';
 
 interface CardProps {
   title: string;

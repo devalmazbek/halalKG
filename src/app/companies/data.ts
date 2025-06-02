@@ -116,4 +116,8 @@ export const mockCompanies = [
     region: "Баткен",
     address: "г. Баткен, ул. Примерная, 606",
   },
-]
+];
+
+
+
+
