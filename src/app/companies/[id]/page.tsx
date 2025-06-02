@@ -4,6 +4,7 @@ import { ContactInfo } from "@/components/ui/contact";
 
 import { CompanyDetailType } from "../types";
 import { CertificateInfo } from "@/components/ui/certificate-info";
+import { CompanyTabs } from "@/components/user-tabs";
 
 export default function CompayDetailPage({ params }: { params: { id: string } }) {
 
@@ -51,7 +52,7 @@ export default function CompayDetailPage({ params }: { params: { id: string } })
                 <CertificateInfo company={company}/>
             </div>
             <div className="flex-1">
-
+                <CompanyTabs company={company}/>
             </div>
         </div>
     );
