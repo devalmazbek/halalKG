@@ -4,7 +4,7 @@ import { ContactInfo } from "@/components/ui/contact";
 
 import { CompanyDetailType } from "../types";
 import { CertificateInfo } from "@/components/ui/certificate-info";
-import { CompanyTabs } from "@/components/user-tabs";
+import { CompanyTabs } from "@/components/company-tabs";
 
 export default function CompayDetailPage({ params }: { params: { id: string } }) {
 

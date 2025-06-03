@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "../components/header/Header";
-import Footer from "../components/Footer";
+import { Footer } from "@/components/Footer";
 import { Providers } from "./providers";
 
 import './../i18n'

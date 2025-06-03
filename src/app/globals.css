@@ -125,3 +125,16 @@
 .last_news_slider .swiper-pagination-bullet-active {
   background-color: #59A94E !important;
 }
+
+
+.company-tabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: #59A94E;
+}
+
+.company-tabs .ant-tabs-ink-bar {
+  background: #59A94E;
+}
+
+.company-tabs .ant-tabs-tab:hover {
+  color:#59A94E; 
+}

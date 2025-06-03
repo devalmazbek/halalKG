@@ -9,7 +9,7 @@ interface Props {
 
 export const AboutCompany: React.FC<Props> = ({company}) => {
     return(
-        <div>
+        <div className="bg-white rounded-lg shadow-sm p-6">
             <h3 className="font-bold text-xl">{company.name}</h3>
             <div className="my-3">
                 <p className="text-base text-gray-700 mb-6 leading-relaxed">{company.description}</p>
@@ -29,7 +29,7 @@ export const AboutCompany: React.FC<Props> = ({company}) => {
                 <div>
                     <div className="mb-3">
                         <h4 className="font-bold text-base">Специализация</h4>
-                        <p className="font-bold text-base">{company.specialization}</p>
+                        <p className="text-base text-gray-700 leading-relaxed">{company.specialization}</p>
                     </div>
                     <div className="mb-3">
                         <h4 className="font-bold text-base">Статус сертификации</h4>
