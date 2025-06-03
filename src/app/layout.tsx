@@ -5,6 +5,7 @@ import "./globals.css";
 import Header from "../components/header/Header";
 import { Footer } from "@/components/Footer";
 import { Providers } from "./providers";
+import Breadcrumbs from "@/components/breadcrumbs";
 
 import './../i18n'
 
@@ -30,6 +31,7 @@ export default function RootLayout({
         <Providers>
           <div className="flex flex-col min-h-screen">
             <Header />
+            <Breadcrumbs />
             <main className="flex-grow">
               {children}
             </main>

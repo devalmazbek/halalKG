@@ -1,56 +1,64 @@
-// components/ui/Breadcrumbs.tsx
-"use client"
+'use client'
 
-import Link from "next/link"
-import { usePathname } from "next/navigation"
-import { useMemo } from "react"
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import { Breadcrumb } from 'antd'
+import { IoIosArrowForward } from "react-icons/io";
 
-interface Crumb {
-  label: string
-  href?: string
-}
 
-interface Props {
-  dynamicLabels?: Record<string, string>
-  baseCrumbs?: Crumb[]
-}
-
-export const Breadcrumbs: React.FC<Props> = ({ dynamicLabels = {}, baseCrumbs = [] }) => {
+export default function Breadcrumbs() {
   const pathname = usePathname()
-  if (!pathname) return null
+  if(!pathname) return null;
 
-  const pathParts = pathname.split("/").filter(Boolean)
+  if (pathname === '/') return null;
 
-  const crumbs = useMemo(() => {
-    const built: Crumb[] = [...baseCrumbs]
+  const segments = pathname.split('/').filter(Boolean)
 
-    pathParts.forEach((part, idx) => {
-      const href = "/" + pathParts.slice(0, idx + 1).join("/")
-      const label = dynamicLabels[part] || decodeURIComponent(part)
+  const items = segments.map((segment, index) => {
+    const href = '/' + segments.slice(0, index + 1).join('/')
 
-      built.push({
-        label,
-        href: idx !== pathParts.length - 1 ? href : undefined, // последняя крошка без ссылки
-      })
-    })
+    let title = decodeURIComponent(segment)
 
-    return built
-  }, [pathname, dynamicLabels, baseCrumbs])
+    switch (segment) {
+      case 'companies':
+        title = 'Компании'
+        break
+      case 'about':
+        title = 'О нас'
+        break
+      case 'certificate':
+        title = 'Сертификаты'
+        break
+      case 'certification':
+        title = 'Сертификация'
+        break
+      default:
+        if (!isNaN(Number(segment))) {
+          title = `Компания #${segment}`
+        } else {
+          title = segment.replace(/-/g, ' ').replace(/^\w/, c => c.toUpperCase())
+        }
+    }
+
+    return {
+      title,
+      href,
+    }
+  })
 
   return (
-    <nav className="text-sm text-gray-600 mb-4" aria-label="Breadcrumbs">
-      {crumbs.map((crumb, index) => (
-        <span key={index}>
-          {crumb.href ? (
-            <Link href={crumb.href} className="hover:underline text-blue-600">
-              {crumb.label}
-            </Link>
-          ) : (
-            <span>{crumb.label}</span>
-          )}
-          {index < crumbs.length - 1 && <span className="mx-1">/</span>}
-        </span>
-      ))}
-    </nav>
+    <div className="pr-1 py-1 font-normal container mx-auto">
+      <Breadcrumb
+        className="text-xs"
+        items={[
+          {
+            title: <Link href="/">Главная</Link>,
+          },
+          ...items.map((item) => ({
+            title: <Link href={item.href}>{item.title}</Link>,
+          })),
+        ]}
+      />
+    </div>
   )
 }

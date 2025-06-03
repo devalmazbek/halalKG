@@ -4,7 +4,6 @@ import { ContactInfo } from "@/components/ui/contact";
 
 import { CertificateInfo } from "@/components/ui/certificate-info";
 import { CompanyTabs } from "@/components/company-tabs";
-import { Breadcrumbs } from "@/components/breadcrumbs";
 
 import { CompanyDetailType } from "../types";
 
@@ -49,7 +48,6 @@ export default function CompayDetailPage({ params }: { params: { id: string } })
 
     return (
         <div className="container mx-auto">
-          <Breadcrumbs dynamicLabels={{ "companies": "Компании", [company.id]: company.name }} />
           <div className=" mt-4 flex">
             <div className="w-1/3 flex-none">
                 <ContactInfo company={company} />
