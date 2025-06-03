@@ -3,7 +3,7 @@
 import React from "react";
 import { Image } from "antd";
 
-import { CompanyDetailType, ProductsType } from "@/app/companies/types";
+import { ProductsType } from "@/app/companies/types";
 
 interface Props {
 	products: ProductsType[];
