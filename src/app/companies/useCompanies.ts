@@ -37,9 +37,9 @@ export function useCompanies() {
     setCompanies(data)
   }
 
-  useEffect(() => {
-    fetchFiltered({ region: "all", businessType: "", specialization: "" })
-  }, [])
+  // useEffect(() => {
+  //   fetchFiltered({ region: "all", businessType: "", specialization: "" })
+  // }, [])
 
   return {companies, filteredCompanies, certStatus, setCertStatus, statuses, regions, businessTypes, specializations, fetchFiltered};
 }
