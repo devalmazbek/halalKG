@@ -6,7 +6,7 @@ type ButtonVariant = "primary" | "secondary" | "danger";
 type TextAlign = "left" | "center" | "right";
 
 interface ButtonProps {
-  text: string; 
+  text?: string;
   icon?: IconDefinition;
   size?: ButtonSize;
   variant?: ButtonVariant;

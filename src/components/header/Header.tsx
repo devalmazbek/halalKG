@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
 
@@ -39,7 +40,7 @@ const Header: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center py-4">
           <Link href="/" className="flex items-center">
-            <span className="text-xl font-bold text-primary">Халал Даму</span>
+            <Image src={'/logo.png'} alt={'logo'} width={50} height={50}></Image>
           </Link>
 
           {/* Desktop Navigation */}

@@ -17,12 +17,12 @@ const Card: React.FC<CardProps> = ({ title, subtitle, icon, withIcon = false, de
   return (
     <div className={`min-w-48 p-3 rounded-md shadow shadow-slate-400 ${className}`}>
       {withIcon && icon && <Icon icon={icon} />}
-      <div className='mt-3'>
+      <div className='mt-3 text-center'>
         <p className='mb-3'>
-          <span className='text-4xl font-semibold text-primary uppercase'>{title}</span>
+          <span className='text-4xl font-semibold text-green-600 uppercase'>{title}</span>
           {subtitle && <span> - {subtitle}</span>}
         </p>
-        <p className='uppercase text-base font-normal'>{description}</p>
+        <p className='font-normal'>{description}</p>
       </div>
     </div>
   );

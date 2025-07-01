@@ -15,7 +15,7 @@ const CompaniesSection: React.FC = () => {
   // Заглушка для t
   const t = (key: string) => {
     const translations: Record<string, string> = {
-      'companies.title': 'Последние сертифицированные предприятия',
+      'companies.title': 'Сертифицированные компании',
       'companies.all': 'Все предприятия'
     };
     return translations[key] || key;

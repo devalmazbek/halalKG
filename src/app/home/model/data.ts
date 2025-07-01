@@ -4,23 +4,23 @@ import { statisticDataType } from "./type";
 export const statistic: statisticDataType[] = [
   {
     id: 1,
-    title: '2018',
-    description: 'Негизделген жылы',
+    title: '500+',
+    description: 'Сертифицированных компаний',
   },
   {
     id: 2,
-    title: '160 +',
-    description: 'Ата мекендик ишканалар',
+    title: '15+',
+    description: 'Лет опыта',
   },
   {
     id: 3,
-    title: '2 +',
-    description: 'Чет элдик ишканалар',
+    title: '20+',
+    description: 'Стран признания',
   },
   {
     id: 4,
-    title: '10 +',
-    description: 'Профессионалдар',
+    title: '5000+',
+    description: 'Сертифицированных продуктов',
   },
 ];
 

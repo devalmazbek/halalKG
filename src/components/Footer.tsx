@@ -97,7 +97,7 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           <div>
             <div className="flex items-center gap-4 mb-6">
-              <Image src="/logo.png" alt="Халал Даму Logo" width={60} height={60} className="h-14 w-auto" />
+              <Image src="/logo.png" alt="Халал Даму Logo" width={50} height={50} />
               <h3 className="font-bold text-xl">Халал Даму</h3>
             </div>
             <p className="text-gray-600 mb-6 leading-relaxed">
