@@ -27,7 +27,7 @@ const Header: React.FC = () => {
     { key: 'home', path: '/',  title: 'Главная'},
     { key: 'about', path: '/about', title: 'О нас' },
     { key: 'companies', path: '/companies', title: 'Компании' },
-    { key: 'ecode', path: '/ecode', title: 'E - Коды' },
+    { key: 'codes', path: '/codes', title: 'E - Коды' },
     // { key: 'news', path: '/news', title: t('nav.news') },
     // { key: 'fatwa', path: '/fatwa', title: t('nav.fatwa') },
     // { key: 'articles', path: '/articles', title: t('nav.articles') },
