@@ -45,7 +45,6 @@ export default function CompayDetailPage({ params }: { params: { id: string } })
     },
   }
 
-
     return (
         <div className="container mx-auto">
           <div className=" mt-4 flex">
