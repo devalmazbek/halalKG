@@ -217,4 +217,14 @@ export const eCodesData: ECode[] = [
     description: "Used as a foaming agent in beverages. Extracted from the bark of the Quillaja saponaria tree.",
     descriptionRu: "Используется как пенообразователь в напитках. Извлекается из коры дерева Quillaja saponaria.",
   },
+  {
+    code: "E999",
+    name: "Quillaia extract",
+    nameRu: "Экстракт квиллайи",
+    category: "other",
+    status: "unknown",
+    source: "Plant-based (Quillaja saponaria tree)",
+    description: "Used as a foaming agent in beverages. Extracted from the bark of the Quillaja saponaria tree.",
+    descriptionRu: "Используется как пенообразователь в напитках. Извлекается из коры дерева Quillaja saponaria.",
+  },
 ]

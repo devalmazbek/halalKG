@@ -28,7 +28,7 @@ export default function CodesPage () {
             сделать осознанный выбор при покупке продуктов питания.
           </p>
         </div>
-        <div className="flex flex-wrap justify-between gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {eCodes.map((code: ECode)=> {
             return(
               <ECodeCard item={code} />

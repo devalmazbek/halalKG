@@ -5,15 +5,15 @@ import { motion } from 'framer-motion';
 import React from 'react';
 
 import {ECode} from "@/app/codes/type";
+import {Badge} from "@/components/ui/badge";
 
 interface ECodeCardProps {
   item: ECode;
 }
 
 export const ECodeCard: React.FC<ECodeCardProps> = ({item}: ECodeCardProps)=> {
-  const { code, nameRu, name, category } = item;
+  const { code, nameRu, name, category, status } = item;
   return (
-    <div className="flex-auto">
       <motion.div
         key={code}
         layout
@@ -29,13 +29,14 @@ export const ECodeCard: React.FC<ECodeCardProps> = ({item}: ECodeCardProps)=> {
             <h2 className="text-2xl font-bold">{code}</h2>
             <p className="text-gray-600">{nameRu}</p>
           </div>
-          <span className="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">
-          {category}
-        </span>
+          <Badge variant={status}>
+            {status === "halal" && "Халял"}
+            {status === "haram" && "Харам"}
+            {status === "mushbooh" && "Сомнительный"}
+            {status === "unknown" && "Неизвестный"}
+          </Badge>
         </div>
         <p className="mt-4 text-gray-700">{category}</p>
       </motion.div>
-    </div>
-
   );
 }
