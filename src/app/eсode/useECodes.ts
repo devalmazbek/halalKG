@@ -1,3 +1,4 @@
+import {useState} from "react";
 import {ECode, ECodeCategories, ECodeStatusMap} from "./type";
 import {eCodesData, eCodeCategoriesData, eCodeStatusMapData} from "./data";
 
