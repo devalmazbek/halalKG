@@ -58,7 +58,17 @@ export default function CodesPage () {
         </div>
       </div>
 
-      <BaseModal open={open} onClose={closeModal} code={selectedCode}>
+      <BaseModal open={open} onClose={closeModal}
+                 code={selectedCode}
+                 title={<div className="flex">
+                   <p>{selectedCode?.code}</p>
+                   <Badge className="ml-2" variant={selectedCode?.status}>
+                     {selectedCode?.status === "halal" && "Халял" }
+                     {selectedCode?.status === "haram" && "Харам" }
+                     {selectedCode?.status === "mushbooh" && "Сомнительный" }
+                     {selectedCode?.status === "unknown" && "Неизвестный" }
+                   </Badge>
+                 </div>}>
         {selectedCode && (
           <ECodeDetails eCode={selectedCode}></ECodeDetails>
         )}
