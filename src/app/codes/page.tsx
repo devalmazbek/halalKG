@@ -3,12 +3,14 @@ import React from 'react';
 
 import {ECodeCard} from "@/components/e-code";
 import {Badge} from "@/components/ui/badge";
+import {BaseModal} from "@/components/ui/modal";
+import {ECodeDetails} from "@/components/ui/e-code-detail";
 
 import {useECodes} from "@/app/codes/useECodes";
 import {ECode} from "@/app/codes/type";
 
 export default function CodesPage () {
-  const {eCodes, eCodeStatus, setECodeStatus, setSelectedECodeStatus, selectedECodeStatus, filteredECodes} = useECodes();
+  const { eCodeStatus, setSelectedECodeStatus, filteredECodes, open, openModal, selectedCode, closeModal } = useECodes();
 
   return (
     <section className="py-12 md:py-16">
@@ -50,11 +52,17 @@ export default function CodesPage () {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {filteredECodes.map((code: ECode)=> {
             return(
-              <ECodeCard item={code} key={code.code} />
+              <ECodeCard item={code} key={code.code} onClick={() => openModal(code)} />
             )
           })}
         </div>
       </div>
+
+      <BaseModal open={open} onClose={closeModal} code={selectedCode}>
+        {selectedCode && (
+          <ECodeDetails eCode={selectedCode}></ECodeDetails>
+        )}
+      </BaseModal>
     </section>
   );
 }

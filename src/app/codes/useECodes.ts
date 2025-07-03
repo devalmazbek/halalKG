@@ -9,6 +9,9 @@ export const useECodes = () => {
   const [selectedECodeStatus, setSelectedECodeStatus] = useState<string>("");
   const [filteredECodes, setFilteredECodes] = useState<ECode[]>([]);
 
+  const [open, setOpen] = useState<boolean>(false);
+  const [selectedCode, setSelectedCode] = useState<ECode | null>(null);
+
   useEffect(() => {
     if(selectedECodeStatus) {
       setFilteredECodes(eCodes.filter((item) => item.status === selectedECodeStatus));
@@ -19,6 +22,17 @@ export const useECodes = () => {
   }, [selectedECodeStatus]);
 
 
+  const openModal = (code: ECode) => {
+    setSelectedCode(code);
+    setOpen(true);
+  };
+
+  const closeModal = () => {
+    setOpen(false);
+    setSelectedCode(null);
+  };
+
+
   return {
     eCodes,
     setECodes,
@@ -26,6 +40,11 @@ export const useECodes = () => {
     setECodeStatus,
     selectedECodeStatus,
     setSelectedECodeStatus,
-    filteredECodes
+    filteredECodes,
+    open,
+    setOpen,
+    openModal,
+    closeModal,
+    selectedCode,
   }
 }
