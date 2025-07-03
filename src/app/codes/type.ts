@@ -17,6 +17,7 @@ export interface ECodeCategories {
 export interface ECodeStatusMapItem {
   label: string;
   description: string;
+  status: string;
 }
 
 export type ECodeStatusMap =  {

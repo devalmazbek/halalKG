@@ -16,18 +16,22 @@ export const eCodeCategoriesData: ECodeCategories[] = [
 export const eCodeStatusMapData: ECodeStatusMap = {
   halal: {
     label: "Халяль",
+    status: "halal",
     description: "Разрешено для употребления мусульманами",
   },
   haram: {
     label: "Харам",
+    status: "haram",
     description: "Запрещено для употребления мусульманами",
   },
   mushbooh: {
     label: "Машбух",
+    status: "mushbooh",
     description: "Сомнительно, требует дополнительной проверки",
   },
   unknown: {
     label: "Неизвестно",
+    status: "unknown",
     description: "Статус не определен",
   },
 }
@@ -218,7 +222,7 @@ export const eCodesData: ECode[] = [
     descriptionRu: "Используется как пенообразователь в напитках. Извлекается из коры дерева Quillaja saponaria.",
   },
   {
-    code: "E999",
+    code: "E995",
     name: "Quillaia extract",
     nameRu: "Экстракт квиллайи",
     category: "other",

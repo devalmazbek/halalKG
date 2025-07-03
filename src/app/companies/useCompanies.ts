@@ -17,7 +17,7 @@ export function useCompanies() {
   const statuses = ["active", "expired", "suspended"];
 
   useEffect(() => {
-    setFilteredCompanies(mockCompanies.filter((c) => c.status === certStatus))
+    setFilteredCompanies(mockCompanies.filter((item) => item.status === certStatus))
   }, [certStatus])
 
 
