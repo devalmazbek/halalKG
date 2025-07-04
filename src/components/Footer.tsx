@@ -41,19 +41,19 @@ const navItems: NavItem[] = [
 const contactInfo: ContactInfo[] = [
   {
     icon: Phone,
-    content: "+7 (777) 123-45-67",
-    href: "tel:+77771234567",
+    content: "+996 (777) 123-45-67",
+    href: "tel:+996707070700",
     isLink: true,
   },
   {
     icon: Mail,
-    content: "info@halaldamu.kz",
+    content: "info@halal.kg",
     href: "mailto:info@halaldamu.kz",
     isLink: true,
   },
   {
     icon: Location,
-    content: "г. Астана, ул. Примерная, 123, Казахстан",
+    content: "г. Бишкек, ул. Жибек Жолу, 123, Кырыгызсатан",
   },
 ]
 
@@ -101,7 +101,7 @@ export const Footer: React.FC = () => {
               <h3 className="font-bold text-xl">Халал Даму</h3>
             </div>
             <p className="text-gray-600 mb-6 leading-relaxed">
-              Центр стандартизации и сертификации «Халал Даму» при духовном управлении мусульман Казахстана - ведущий
+              Центр стандартизации и сертификации «Халал Даму» при духовном управлении мусульман Кыргызстана - ведущий
               центр сертификации халяльной продукции.
             </p>
             <div className="flex gap-3">
@@ -169,7 +169,7 @@ export const Footer: React.FC = () => {
 
         <div className="border-t border-gray-300 mt-12 pt-8 text-center text-gray-500 text-sm">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p>© {currentYear} Халал Даму. Все права защищены.</p>
+            <p>© {currentYear} Халал. Все права защищены.</p>
             <div className="flex gap-4 mt-4 md:mt-0">
               <Link href="/privacy" className="hover:text-green-600 transition-colors">
                 Политика конфиденциальности
