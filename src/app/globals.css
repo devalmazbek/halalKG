@@ -138,3 +138,12 @@
 .company-tabs .ant-tabs-tab:hover {
   color:#59A94E; 
 }
+
+
+.home-accordion .ant-collapse-header-text {
+    @apply !font-medium !font-bold text-base;
+}
+
+.home-accordion .ant-collapse-content-box {
+    @apply pb-4 text-gray-600;
+}

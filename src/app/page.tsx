@@ -1,6 +1,7 @@
 "use client";
-import dynamic from "next/dynamic";
+import {useEffect} from "react";
 import { useTranslation } from 'react-i18next';
+import dynamic from "next/dynamic";
 import Hero from '../components/Hero';
 import Advantages from '../components/Advantages';
 import NewsSection from '../components/NewsSection';
@@ -13,9 +14,19 @@ import Statistic from '@/components/statistic';
 import LastNewsSlider from '@/components/last-news-slider';
 import CertificateVerification from "@/components/certificate-verification";
 import Testimonials from "@/components/testimonials";
+import {Accordion} from "@/components/accordian";
+import {useHome} from "@/app/useHome";
+
+import {getLastNews} from "@/services/news-services";
 
 export default function Home() {
   const { t } = useTranslation();
+  const { accordianData } = useHome()
+
+  useEffect(() => {
+    getLastNews().then((data) => console.log(data));
+  })
+
 
   return (
     <>
@@ -47,6 +58,20 @@ export default function Home() {
 
       <Testimonials />
       <CertificationSteps />
+
+      <section className="container mx-auto px-4 py-8">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold mb-4">Часто задаваемые вопросы</h2>
+          <p className="text-gray-600 max-w-2xl mx-auto">Ответы на наиболее распространенные вопросы о сертификации Халал</p>
+        </div>
+        <Accordion
+          accordion
+          panels={accordianData}
+          ghost
+          expandIconPosition="end"
+          className="home-accordion max-w-3xl mx-auto my-3"
+        />
+      </section>
       
        {/*<ApplicationForm />*/}
       
