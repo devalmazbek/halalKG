@@ -46,16 +46,16 @@ export default function Testimonials() {
   return (
     <div className="bg-white rounded-lg shadow-sm overflow-hidden">
       <div className="p-8 md:p-12">
-        <div className="flex justify-between items-center mb-8">
-          <h2 className="text-2xl font-bold">Отзывы наших клиентов</h2>
-          <div className="flex gap-2">
-            <span className="cursor-pointer" onClick={prevTestimonial}>
-              <FiArrowLeftCircle />
-            </span>
-            <span className="cursor-pointer" onClick={nextTestimonial}>
-              <FiArrowRightCircle />
-            </span>
-          </div>
+        <div className="mb-8">
+          <h2 className="text-2xl text-center font-bold">Отзывы наших клиентов</h2>
+          {/*<div className="flex gap-2">*/}
+          {/*  <span className="cursor-pointer" onClick={prevTestimonial}>*/}
+          {/*    <FiArrowLeftCircle />*/}
+          {/*  </span>*/}
+          {/*  <span className="cursor-pointer" onClick={nextTestimonial}>*/}
+          {/*    <FiArrowRightCircle />*/}
+          {/*  </span>*/}
+          {/*</div>*/}
         </div>
 
         <div className="relative">
