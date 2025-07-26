@@ -1,4 +1,5 @@
 import { Menu } from "./Menu";
 import { Language } from "./Language";
+import {TopBar} from "./TopBar";
 
-export { Menu, Language }
+export { Menu, Language, TopBar }

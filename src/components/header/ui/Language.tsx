@@ -29,7 +29,7 @@ export const Language: React.FC<LanguageProps> = ({ isMobile = false, toggleMenu
           : 'hidden md:flex items-center space-x-3'
       }
     >
-      {['ru', 'kg', 'en'].map((lng) => (
+      {['ru'].map((lng) => (
         <button
           key={lng}
           onClick={() => changeLanguage(lng)}
