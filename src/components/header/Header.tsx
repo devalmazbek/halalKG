@@ -12,7 +12,7 @@ import { MenuItem } from './model/type'
 import { useHeader } from './model/useHeader';
 import Button from "@/components/ui/button";
 
-const Header: React.FC = () => {
+export const Header: React.FC = () => {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const { t } = useTranslation();
@@ -59,5 +59,3 @@ const Header: React.FC = () => {
     </header>
   );
 };
-
-export default Header; 
