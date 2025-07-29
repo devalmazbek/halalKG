@@ -3,8 +3,6 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Breadcrumb } from 'antd'
-import { IoIosArrowForward } from "react-icons/io";
-
 
 export default function Breadcrumbs() {
   const pathname = usePathname()
@@ -47,7 +45,7 @@ export default function Breadcrumbs() {
   })
 
   return (
-    <div className="pr-1 py-1 font-normal container mx-auto">
+    <div className="my-2 font-normal container mx-auto">
       <Breadcrumb
         className="text-xs"
         items={[

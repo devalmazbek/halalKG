@@ -1,5 +1,5 @@
 "use client";
-import {useEffect} from "react";
+import { useEffect } from "react";
 import { useTranslation } from 'react-i18next';
 import dynamic from "next/dynamic";
 import Hero from '../components/Hero';
@@ -19,9 +19,15 @@ import {useHome} from "@/app/useHome";
 
 import {getLastNews} from "@/services/news-services";
 
+
+const MapNoSSR = dynamic(
+  () => import('@/components/map').then((mod) => mod.HomeMap),
+  { ssr: false }
+)
+
 export default function Home() {
   const { t } = useTranslation();
-  const { accordianData } = useHome()
+  const { accordianData, markers, regions } = useHome()
 
   useEffect(() => {
     getLastNews().then((data) => console.log(data));
@@ -58,6 +64,9 @@ export default function Home() {
 
       <Testimonials />
       <CertificationSteps />
+      <section className="mt-6">
+        <MapNoSSR markers={markers} regions={regions} />
+      </section>
 
       <section className="container mx-auto px-4 py-8">
         <div className="text-center mb-12">

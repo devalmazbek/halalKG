@@ -15,7 +15,7 @@ export const TopBar: React.FC<Props> = ({socials}) => {
     <div className="flex justify-between items-center pb-2 border-b border-gray-200">
       <div className="flex items-center gap-4">
         <Link href="/" className="flex items-center gap-3">
-          <Image src="/logo.png" alt="Халал Даму Logo" width={60} height={60} className="h-14 w-auto" />
+          <Image src="/logo.png" alt="Халал Даму Logo" width={60} height={60}/>
           <div className="text-xs md:text-sm text-gray-600 max-w-xs hidden md:block">
             ЦЕНТР СТАНДАРТИЗАЦИИ И СЕРТИФИКАЦИИ «ХАЛАЛ ДАМУ»
           </div>
