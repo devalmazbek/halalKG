@@ -2,6 +2,7 @@
 import { useEffect } from "react";
 import { useTranslation } from 'react-i18next';
 import dynamic from "next/dynamic";
+import { Spin } from 'antd';
 import Hero from '../components/Hero';
 import Advantages from '../components/Advantages';
 import NewsSection from '../components/NewsSection';
@@ -19,15 +20,30 @@ import {useHome} from "@/app/useHome";
 
 import {getLastNews} from "@/services/news-services";
 
+import { useRegionsMap } from '@/components/map/useRegionMap';
+import Button from "@/components/ui/button";
 
-const MapNoSSR = dynamic(
-  () => import('@/components/map').then((mod) => mod.HomeMap),
-  { ssr: false }
-)
+
+const InteractiveMap = dynamic(
+  () => import('@/components/map').then(mod => mod.InteractiveMap),
+  {
+    ssr: false,
+    loading: () => <div className="w-full h-[400px] flex justify-center items-center"><Spin size='large' /></div>
+  }
+);
 
 export default function Home() {
   const { t } = useTranslation();
-  const { accordianData, markers, regions } = useHome()
+  const { accordianData } = useHome()
+  const {
+    regions,
+    markers,
+    center,
+    zoom,
+    activeRegion,
+    selectRegion,
+    resetRegion
+  } = useRegionsMap();
 
   useEffect(() => {
     getLastNews().then((data) => console.log(data));
@@ -65,7 +81,39 @@ export default function Home() {
       <Testimonials />
       <CertificationSteps />
       <section className="mt-6">
-        <MapNoSSR markers={markers} regions={regions} />
+        {/*<MapNoSSR markers={markers} regions={regions} />*/}
+        <div className="container mx-auto p-4">
+          <h1 className="text-2xl font-bold mb-4">Карта регионов Кыргызстана</h1>
+
+          <div className="flex flex-col md:flex-row gap-4">
+            {/* Список регионов */}
+            <div className="w-full md:w-64 space-y-2">
+              <Button
+                text={'Вся страна'}
+                className={`w-full p-2 text-left rounded`}
+                onClick={resetRegion}
+              />
+
+              {regions.map(region => (
+                <Button
+                  text={region.name}
+                  key={region.id}
+                  onClick={() => selectRegion(region.id)}
+                  className='w-full p-2 text-left rounded'
+                />
+              ))}
+            </div>
+
+            {/* Карта */}
+            <div className="flex-1">
+              <InteractiveMap
+                center={center}
+                zoom={zoom}
+                markers={markers}
+              />
+            </div>
+          </div>
+        </div>
       </section>
 
       <section className="container mx-auto px-4 py-8">
