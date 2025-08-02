@@ -1,12 +1,8 @@
-'use client'; // Важно для использования клиентских API
+'use client'
 
-import { useEffect } from 'react';
-import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
-import L from 'leaflet';
-import 'leaflet/dist/leaflet.css';
-
-const isBrowser = typeof window !== 'undefined';
-
+import React, {useEffect} from "react";
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
+import L from 'leaflet'
 
 const DefaultIcon = L.icon({
   iconUrl: '/images/map/marker-icon.png',
@@ -18,61 +14,29 @@ const DefaultIcon = L.icon({
   shadowSize: [41, 41]
 });
 
-interface MapControllerProps {
-  center: [number, number];
-  zoom: number;
+interface Props {
+  position: [number, number];
+  markerText: string;
 }
 
-const MapController = ({ center, zoom }: MapControllerProps) => {
-  const map = useMap();
-
-  useEffect(() => {
-    if (center && zoom) {
-      map.flyTo(center, zoom, {
-        duration: 1,
-      });
-    }
-  }, [center, zoom, map]);
-
-  return null;
-};
-
-interface InteractiveMapProps {
-  center: [number, number];
-  zoom: number;
-  markers: Array<{
-    position: [number, number];
-    popupText: string;
-  }>;
-}
-
-export const InteractiveMap = ({ center, zoom, markers }: InteractiveMapProps) => {
-  // Инициализация иконки один раз
+export const Map:React.FC<Props> =({position = [51.505, -0.09], markerText})=> {
   useEffect(() => {
     L.Marker.prototype.options.icon = DefaultIcon;
   }, []);
 
   return (
-    <div className="h-[450px] w-full rounded-lg overflow-hidden">
-      <MapContainer
-        center={center}
-        zoom={zoom}
-        style={{ height: '100%', width: '100%' }}
-        placeholder={<div className="h-full w-full bg-gray-200 animate-pulse" />}
-      >
-        <TileLayer
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        />
-
-        <MapController center={center} zoom={zoom} />
-
-        {markers.map((marker, index) => (
-          <Marker key={index} position={marker.position}>
-            <Popup>{marker.popupText}</Popup>
-          </Marker>
-        ))}
-      </MapContainer>
-    </div>
-  );
-};
+    <MapContainer
+      center={position}
+      zoom={16}
+      style={{ height: '300px', width: '100%' }}
+    >
+      <TileLayer
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        attribution="&copy; OpenStreetMap contributors"
+      />
+      <Marker position={position}>
+        <Popup>{markerText}</Popup>
+      </Marker>
+    </MapContainer>
+  )
+}

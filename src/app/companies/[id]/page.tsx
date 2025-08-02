@@ -1,14 +1,13 @@
 "use client"
 
 import { ContactInfo } from "@/components/ui/contact";
-
 import { CertificateInfo } from "@/components/ui/certificate-info";
 import { CompanyTabs } from "@/components/company-tabs";
+import {Map} from "@/components/map";
 
 import { CompanyDetailType } from "../types";
 
 export default function CompayDetailPage({ params }: { params: { id: string } }) {
-
     const company: CompanyDetailType = {
     id: params.id,
     name: `Компания ${params.id}`,
@@ -33,7 +32,7 @@ export default function CompayDetailPage({ params }: { params: { id: string } })
       { name: "Колбасные изделия", image: "/product-3.jpg" },
       { name: "Полуфабрикаты", image: "/product-4.jpg" },
     ],
-    position: { lat: 42.8746, lng: 74.5698 }, // Bishkek coordinates
+    position: { lat: 42.8746, lng: 74.5698 },
     representative: {
       id: 1,
       name: "Амангелдиев Акылбек",
@@ -51,6 +50,7 @@ export default function CompayDetailPage({ params }: { params: { id: string } })
             <div className="w-1/3 flex-none">
                 <ContactInfo company={company} />
                 <CertificateInfo company={company}/>
+                <Map position={[company.position.lat, company.position.lng]} markerText={company.address} />
             </div>
             <div className="flex-1">
                 <CompanyTabs company={company}/>

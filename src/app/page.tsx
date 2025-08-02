@@ -18,14 +18,12 @@ import Testimonials from "@/components/testimonials";
 import {Accordion} from "@/components/accordian";
 import {useHome} from "@/app/useHome";
 
-import {getLastNews} from "@/services/news-services";
-
-import { useRegionsMap } from '@/components/map/useRegionMap';
+import { useRegionsMap } from '@/components/home-map/useRegionMap';
 import Button from "@/components/ui/button";
 
 
-const InteractiveMap = dynamic(
-  () => import('@/components/map').then(mod => mod.InteractiveMap),
+const HomeMap = dynamic(
+  () => import('@/components/home-map').then(mod => mod.HomeMap),
   {
     ssr: false,
     loading: () => <div className="w-full h-[400px] flex justify-center items-center"><Spin size='large' /></div>
@@ -45,9 +43,6 @@ export default function Home() {
     resetRegion
   } = useRegionsMap();
 
-  useEffect(() => {
-    getLastNews().then((data) => console.log(data));
-  })
 
 
   return (
@@ -81,10 +76,8 @@ export default function Home() {
       <Testimonials />
       <CertificationSteps />
       <section className="mt-6">
-        {/*<MapNoSSR markers={markers} regions={regions} />*/}
         <div className="container mx-auto p-4">
           <h1 className="text-2xl font-bold mb-4">Карта регионов Кыргызстана</h1>
-
           <div className="flex flex-col md:flex-row gap-4">
             {/* Список регионов */}
             <div className="w-full md:w-64 space-y-2">
@@ -103,10 +96,8 @@ export default function Home() {
                 />
               ))}
             </div>
-
-            {/* Карта */}
             <div className="flex-1">
-              <InteractiveMap
+              <HomeMap
                 center={center}
                 zoom={zoom}
                 markers={markers}
