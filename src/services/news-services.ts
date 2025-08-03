@@ -1,11 +1,12 @@
 import {apiClient} from "@/services/api";
-import axios from "axios";
 import {NewsType} from "@/types/news";
 
-
-const baseURL = process.env.NEXT_PUBLIC_BASE_API;
-
 export const getNews = async ():Promise<NewsType[]> => {
-  const response = await axios.get(`${baseURL}/news`);
+  const response = await apiClient.get(`/news`);
+  return response.data;
+}
+
+export const getDetailNewsItem = async (id: string | null):Promise<NewsType> => {
+  const response = await apiClient.get(`/news/${id}`);
   return response.data;
 }

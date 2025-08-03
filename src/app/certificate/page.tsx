@@ -1,5 +1,6 @@
 import React from 'react';
 import { Metadata } from 'next';
+import BreadCrumbs from "@/components/breadcrumbs";
 
 export const metadata: Metadata = {
   title: 'Проверить сертификат | Халал Даму',
@@ -9,6 +10,7 @@ export const metadata: Metadata = {
 export default function CertificatePage() {
   return (
     <div className="container mx-auto py-12">
+      <BreadCrumbs />
       <h1 className="text-3xl font-bold mb-8 text-center">Проверка сертификата</h1>
       
       <div className="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-md">

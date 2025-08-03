@@ -8,14 +8,15 @@ import {ECodeDetails} from "@/components/ui/e-code-detail";
 
 import {useECodes} from "@/app/codes/useECodes";
 import {ECode} from "@/app/codes/type";
+import BreadCrumbs from "@/components/breadcrumbs";
 
 export default function CodesPage () {
   const { eCodeStatus, setSelectedECodeStatus, filteredECodes, open, openModal, selectedCode, closeModal } = useECodes();
 
   return (
-    <section className="py-12 md:py-16">
-      <div className="container mx-auto px-4">
-
+    <section className="container">
+      <BreadCrumbs />
+      <div className="container mx-auto mb-5">
         <div className="mb-12">
           <h2 className="text-3xl font-bold mb-6">Что такое Е-коды?</h2>
           <p className="text-gray-700 mb-4">

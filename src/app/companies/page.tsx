@@ -10,6 +10,7 @@ import { useCompanies } from './useCompanies';
 import { StatusFilter } from '@/components/status-filter';
 import { CompanyFilters } from '@/components/filter';
 import { Badge } from '@/components/ui/badge';
+import BreadCrumbs from "@/components/breadcrumbs";
 
 
 // export const metadata: Metadata = {
@@ -29,8 +30,8 @@ export default function CompaniesPage() {
 				fetchFiltered} = useCompanies();
 
 	return (
-		<div className="container mx-auto py-12">
-			{/* filter */}
+		<div className="container mx-auto mb-5">
+			<BreadCrumbs />
  			<StatusFilter statuses={statuses} current={certStatus as any} onChange={setCertStatus} />
 
 			<CompanyFilters

@@ -1,7 +1,8 @@
 "use client";
 import React from 'react';
 import { motion } from 'framer-motion';
-import Advantages from '../../components/Advantages';
+import Advantages from '@/components/Advantages';
+import BreadCrumbs from '@/components/breadcrumbs';
 
 export default function AboutPage() {
   // Заглушка для t
@@ -15,7 +16,7 @@ export default function AboutPage() {
 
   return (
     <div>
-      {/* Заголовок страницы */}
+      <BreadCrumbs />
       <div className="bg-primary text-white py-16">
         <div className="container mx-auto px-4">
           <h1 className="text-3xl md:text-4xl font-bold mb-4">{t('about.title')}</h1>
@@ -24,7 +25,6 @@ export default function AboutPage() {
         </div>
       </div>
 
-      {/* История */}
       <div className="py-16">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
@@ -62,16 +62,13 @@ export default function AboutPage() {
         </div>
       </div>
 
-      {/* Преимущества */}
       <Advantages />
 
-      {/* Наша команда */}
       <div className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12">Наша команда</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* Заглушки для членов команды */}
             {[1, 2, 3, 4].map((item) => (
               <motion.div
                 key={item}

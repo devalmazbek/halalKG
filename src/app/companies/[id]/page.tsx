@@ -1,9 +1,12 @@
 "use client"
 
+import React from "react";
+
+import BreadCrumbs from "@/components/breadcrumbs";
 import { ContactInfo } from "@/components/ui/contact";
 import { CertificateInfo } from "@/components/ui/certificate-info";
 import { CompanyTabs } from "@/components/company-tabs";
-import {Map} from "@/components/map";
+import { Map } from "@/components/map";
 
 import { CompanyDetailType } from "../types";
 
@@ -46,6 +49,7 @@ export default function CompayDetailPage({ params }: { params: { id: string } })
 
     return (
         <div className="container mx-auto">
+          <BreadCrumbs title={company?.name} />
           <div className=" mt-4 flex">
             <div className="w-1/3 flex-none">
                 <ContactInfo company={company} />

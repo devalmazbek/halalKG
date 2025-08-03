@@ -1,48 +1,64 @@
-'use client'
+'use client';
 
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
-import { Breadcrumb } from 'antd'
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { Breadcrumb } from 'antd';
 
-export default function Breadcrumbs() {
-  const pathname = usePathname()
-  if(!pathname) return null;
+interface BreadcrumbsProps {
+  title?: string;
+}
 
-  if (pathname === '/') return null;
+export default function Breadcrumbs({ title }: BreadcrumbsProps) {
+  const pathname = usePathname();
+  if (!pathname || pathname === '/') return null;
 
-  const segments = pathname.split('/').filter(Boolean)
+  const segments = pathname.split('/').filter(Boolean);
 
   const items = segments.map((segment, index) => {
-    const href = '/' + segments.slice(0, index + 1).join('/')
+    const href = '/' + segments.slice(0, index + 1).join('/');
+    const isLast = index === segments.length - 1;
 
-    let title = decodeURIComponent(segment)
+    let displayTitle: string;
 
-    switch (segment) {
-      case 'companies':
-        title = 'Компании'
-        break
-      case 'about':
-        title = 'О нас'
-        break
-      case 'certificate':
-        title = 'Сертификаты'
-        break
-      case 'certification':
-        title = 'Сертификация'
-        break
-      default:
-        if (!isNaN(Number(segment))) {
-          title = `Компания #${segment}`
-        } else {
-          title = segment.replace(/-/g, ' ').replace(/^\w/, c => c.toUpperCase())
-        }
+    // Если это последний сегмент и передан title — показываем его
+    if (isLast && title) {
+      displayTitle = title;
+    } else {
+      switch (segment) {
+        case 'companies':
+          displayTitle = 'Компании';
+          break;
+        case 'about':
+          displayTitle = 'О нас';
+          break;
+        case 'certificate':
+          displayTitle = 'Сертификаты';
+          break;
+        case 'certification':
+          displayTitle = 'Сертификация';
+          break;
+        case 'news':
+          displayTitle = 'Новости';
+          break;
+        default:
+          if (!isNaN(Number(segment))) {
+            displayTitle = `Компания #${segment}`;
+          } else {
+            displayTitle = segment
+              .replace(/-/g, ' ')
+              .replace(/^\w/, (c) => c.toUpperCase());
+          }
+      }
     }
 
     return {
-      title,
-      href,
-    }
-  })
+      title: isLast ? (
+        <span>{displayTitle}</span>
+      ) : (
+        <Link href={href}>{displayTitle}</Link>
+      ),
+    };
+  });
 
   return (
     <div className="my-2 font-normal container mx-auto">
@@ -52,11 +68,9 @@ export default function Breadcrumbs() {
           {
             title: <Link href="/">Главная</Link>,
           },
-          ...items.map((item) => ({
-            title: <Link href={item.href}>{item.title}</Link>,
-          })),
+          ...items,
         ]}
       />
     </div>
-  )
+  );
 }

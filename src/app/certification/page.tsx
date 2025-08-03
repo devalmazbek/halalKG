@@ -3,6 +3,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import CertificationSteps from '../../components/CertificationSteps';
 import ApplicationForm from '../../components/ApplicationForm';
+import BreadCrumbs from "@/components/breadcrumbs";
 
 export default function CertificationPage() {
   // Заглушка для t
@@ -15,7 +16,7 @@ export default function CertificationPage() {
 
   return (
     <div>
-      {/* Заголовок страницы */}
+      <BreadCrumbs />
       <div className="bg-primary text-white py-16">
         <div className="container mx-auto px-4">
           <h1 className="text-3xl md:text-4xl font-bold mb-4">{t('nav.certification')}</h1>
